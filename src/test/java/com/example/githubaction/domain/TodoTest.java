@@ -21,4 +21,11 @@ class TodoTest {
         assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> new Todo(title, "description"));
     }
+
+    @ParameterizedTest
+    @NullAndEmptySource
+    void 설명_빈값(String description) {
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> new Todo("title", description));
+    }
 }

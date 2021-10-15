@@ -10,13 +10,16 @@ public class Todo {
     private final String description;
 
     public Todo(String title, String description) {
-        checkTitle(title);
+        check(title, description);
         this.title = title;
         this.description = description;
     }
 
-    private void checkTitle(String title) {
+    private void check(String title, String description) {
         if (Strings.isEmpty(title)) {
+            throw new IllegalArgumentException();
+        }
+        if (Strings.isEmpty(description)) {
             throw new IllegalArgumentException();
         }
     }
