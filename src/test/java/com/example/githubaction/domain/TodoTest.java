@@ -11,14 +11,14 @@ class TodoTest {
 
     @Test
     void 생성() {
-        Todo todo = new Todo("todo");
-        assertThat(todo).isEqualTo(new Todo("todo"));
+        Todo todo = new Todo("todo","description");
+        assertThat(todo).isEqualTo(new Todo("todo", "description"));
     }
 
     @ParameterizedTest
     @NullAndEmptySource
     void 제목_빈값(String title) {
         assertThatExceptionOfType(IllegalArgumentException.class)
-                .isThrownBy(() -> new Todo(title));
+                .isThrownBy(() -> new Todo(title, "description"));
     }
 }
