@@ -7,10 +7,12 @@ import org.apache.logging.log4j.util.Strings;
 public class Todo {
 
     private final String title;
+    private final String description;
 
-    public Todo(String title) {
+    public Todo(String title, String description) {
         checkTitle(title);
         this.title = title;
+        this.description = description;
     }
 
     private void checkTitle(String title) {
