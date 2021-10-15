@@ -3,6 +3,7 @@ package com.example.githubaction.domain;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 class TodosTest {
 
@@ -13,5 +14,11 @@ class TodosTest {
         Todo 세번째_할일 = new Todo("제목3", "설명3");
         Todos todos = new Todos(첫번째_할일, 두번째_할일, 세번째_할일);
         assertThat(todos.getTodos()).contains(첫번째_할일, 두번째_할일, 세번째_할일);
+    }
+
+    @Test
+    void 빈_리스트() {
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> new Todos(null));
     }
 }
