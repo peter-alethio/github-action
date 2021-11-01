@@ -15,10 +15,4 @@ class TodosTest {
         Todos todos = new Todos(첫번째_할일, 두번째_할일, 세번째_할일);
         assertThat(todos.getTodos()).contains(첫번째_할일, 두번째_할일, 세번째_할일);
     }
-//
-//    @Test
-//    void 빈_리스트() {
-//        assertThatExceptionOfType(IllegalArgumentException.class)
-//                .isThrownBy(() -> new Todos(null));
-//    }
 }
