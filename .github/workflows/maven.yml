@@ -21,11 +21,15 @@ jobs:
         cache: maven
     - name: test
       run: mvn test
-    - name: current directory
-      run: echo pwd
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v2.1.0
+#    - name: Upload coverage to Codecov
+#      uses: codecov/codecov-action@v2.1.0
+#      with:
+#        token: ${{ secrets.CODECOV_TOKEN }}
+#        files: ./target/site/jacoco/jacoco.xml
+#        verbose: true
+        # Runs a set of commands using the runners shell
+    - name: sonarqube
+      uses: kitabisa/sonarqube-action@v1.1.1
       with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-        files: ./target/site/jacoco/jacoco.xml
-        verbose: true
+        host: ${{ secrets.SONARQUBE_HOST }}
+        login: ${{ secrets.SONARQUBE_TOKEN }}
