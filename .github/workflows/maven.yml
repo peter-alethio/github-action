@@ -29,7 +29,5 @@ jobs:
 #        verbose: true
         # Runs a set of commands using the runners shell
     - name: sonarqube
-      uses: kitabisa/sonarqube-action@v1.1.1
-      with:
-        host: ${{ secrets.SONARQUBE_HOST }}
-        login: ${{ secrets.SONARQUBE_TOKEN }}
+      run: mvn sonar:sonar -Dsonar.host.url=${{ secrets.SONARQUBE_HOST }} -Dsonar.login=${{ secrets.SONARQUBE_TOKEN }}
+
